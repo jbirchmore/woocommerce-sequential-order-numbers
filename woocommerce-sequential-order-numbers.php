@@ -194,7 +194,7 @@ class WC_Seq_Order_Number {
 	public function set_sequential_order_number( $post_id, $post ) {
 		global $wpdb;
 
-		if ( 'shop_order' === $post->post_type && 'auto-draft' !== $post->post_status ) {
+		if ( 'shop_order' === $post->post_type && 'auto-draft' !== $post->post_status  && 'wc-checkout-draft' !== $post->post_status ) {
 
 			$order        = wc_get_order( $post_id );
 			$order_number = $order->get_meta( '_order_number', true, 'edit' );
